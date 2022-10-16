@@ -26,16 +26,14 @@ import (
 	"time"
 )
 
-var (
-	// ErrTermNotFound indicates that a suitable terminal entry could
-	// not be found.  This can result from either not having TERM set,
-	// or from the TERM failing to support certain minimal functionality,
-	// in particular absolute cursor addressability (the cup capability)
-	// is required.  For example, legacy "adm3" lacks this capability,
-	// whereas the slightly newer "adm3a" supports it.  This failure
-	// occurs most often with "dumb".
-	ErrTermNotFound = errors.New("terminal entry not found")
-)
+// ErrTermNotFound indicates that a suitable terminal entry could
+// not be found.  This can result from either not having TERM set,
+// or from the TERM failing to support certain minimal functionality,
+// in particular absolute cursor addressability (the cup capability)
+// is required.  For example, legacy "adm3" lacks this capability,
+// whereas the slightly newer "adm3a" supports it.  This failure
+// occurs most often with "dumb".
+var ErrTermNotFound = errors.New("terminal entry not found")
 
 // Terminfo represents a terminfo entry.  Note that we use friendly names
 // in Go, but when we write out JSON, we use the same names as terminfo.
@@ -230,6 +228,10 @@ type Terminfo struct {
 	EnterUrl                string
 	ExitUrl                 string
 	SetWindowSize           string
+
+	// added by aprish
+	BackColorErase bool   // screen erased with background color: bce
+	EraseChars     string // erase #1 character: ech
 }
 
 const (
@@ -263,8 +265,8 @@ func (st stack) PopString() (string, stack) {
 		return s, st[:len(st)-1]
 	}
 	return "", st
-
 }
+
 func (st stack) PopInt() (int, stack) {
 	if len(st) > 0 {
 		e := st[len(st)-1]
@@ -327,7 +329,7 @@ func (t *Terminfo) TParm(s string, p ...interface{}) string {
 	var ai, bi int
 	var dvars [26]string
 	var params [9]interface{}
-	var pb = &paramsBuffer{}
+	pb := &paramsBuffer{}
 
 	pb.Start(s)
 

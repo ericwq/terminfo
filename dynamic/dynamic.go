@@ -310,6 +310,10 @@ func LoadTerminfo(name string) (*terminfo.Terminfo, string, error) {
 	t.KeyShfHome = tc.getstr("kHOM")
 	t.KeyShfEnd = tc.getstr("kEND")
 
+	// added by aprish
+	t.EraseChars = tc.getstr("ech")
+	t.BackColorErase = tc.getflag("bce")
+
 	// Terminfo lacks descriptions for a bunch of modified keys,
 	// but modern XTerm and emulators often have them.  Let's add them,
 	// if the shifted right and left arrows are defined.
