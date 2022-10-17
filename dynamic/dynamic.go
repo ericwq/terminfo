@@ -120,13 +120,15 @@ func (tc *termcap) setupterm(name string) error {
 	cmd := exec.Command("infocmp", "-1", name)
 	output := &bytes.Buffer{}
 	cmd.Stdout = output
+	cmd.Stderr = output
 
 	tc.strs = make(map[string]string)
 	tc.bools = make(map[string]bool)
 	tc.nums = make(map[string]int)
 
 	if err := cmd.Run(); err != nil {
-		return err
+		// this translaet the "exit status 1" into "infocmp: couldn't open terminfo file (null)."
+		return errors.New(strings.TrimSpace(output.String()))
 	}
 
 	// Now parse the output.
