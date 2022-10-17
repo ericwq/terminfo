@@ -277,6 +277,10 @@ func getinfo(name string) (*terminfo.Terminfo, string, error) {
 	t.StrikeThrough = tc.getstr("smxx")
 	t.Mouse = tc.getstr("kmous")
 
+	// added by aprish
+	t.EraseChars = tc.getstr("ech")
+	t.BackColorErase = tc.getflag("bce")
+
 	t.Modifiers = terminfo.ModifiersNone
 
 	// Terminfo lacks descriptions for a bunch of modified keys,
@@ -618,6 +622,11 @@ func dotGoInfo(w io.Writer, terms []*TData) {
 		dotGoAddStr(w, "CursorSteadyUnderline", t.CursorSteadyUnderline)
 		dotGoAddStr(w, "CursorBlinkingBar", t.CursorBlinkingBar)
 		dotGoAddStr(w, "CursorSteadyBar", t.CursorSteadyBar)
+
+		// added by aprish
+		dotGoAddStr(w, "EraseChars", t.EraseChars)
+		dotGoAddFlag(w, "BackColorErase", t.BackColorErase)
+
 		fmt.Fprintln(w, "\t})")
 	}
 	fmt.Fprintln(w, "}")
