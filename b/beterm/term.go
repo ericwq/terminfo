@@ -53,5 +53,6 @@ func init() {
 		KeyF12:       "\x1b[22~",
 		AutoMargin:   true,
 		InsertChar:   "\x1b[@",
+		EraseChars:   "\x1b[%p1%dX",
 	})
 }

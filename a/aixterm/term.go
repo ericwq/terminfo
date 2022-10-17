@@ -79,5 +79,6 @@ func init() {
 		KeyClear:     "\x1b[144q",
 		KeyBacktab:   "\x1b[Z",
 		AutoMargin:   true,
+		EraseChars:   "\x1b[%p1%dX",
 	})
 }

@@ -58,6 +58,7 @@ func init() {
 		KeyF24:       "\x1b[2~",
 		KeyBacktab:   "\x1b[z",
 		AutoMargin:   true,
+		EraseChars:   "\x1b[%p1%dX",
 	})
 
 	// Wyse WY-99GT in ANSI mode (US PC keyboard)
@@ -112,5 +113,6 @@ func init() {
 		KeyF24:       "\x1b[2~",
 		KeyBacktab:   "\x1b[z",
 		AutoMargin:   true,
+		EraseChars:   "\x1b[%p1%dX",
 	})
 }

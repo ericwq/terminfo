@@ -50,5 +50,6 @@ func init() {
 		KeyF9:        "\x1b[21~",
 		KeyF10:       "\x1b[29~",
 		AutoMargin:   true,
+		EraseChars:   "\x1b[%p1%dX",
 	})
 }

@@ -14,5 +14,6 @@ do
         direc=${alias:0:1}
 
         mkdir -p ${direc}/${alias}
+		  echo "generate file for: ${line//,/ }"
         go run cmd/mkinfo.go -P ${alias} -go ${direc}/${alias}/term.go ${line//,/ }
 done < models.txt

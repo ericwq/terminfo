@@ -63,5 +63,6 @@ func init() {
 		Modifiers:    1,
 		AutoMargin:   true,
 		InsertChar:   "\x1b[@",
+		EraseChars:   "\x1b[%p1%dX",
 	})
 }

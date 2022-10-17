@@ -690,6 +690,7 @@ func main() {
 	for _, term := range args {
 		if t, desc, e := getinfo(term); e != nil {
 			if all && e == notaddressable {
+				fmt.Printf("#mkinfo error in generate %s. %s\n", term, e)
 				continue
 			}
 			if !quiet {

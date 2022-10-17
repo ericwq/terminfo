@@ -25,6 +25,7 @@ import (
 	// The following imports just register themselves --
 	// thse are the terminal types we aggregate in this package.
 	_ "github.com/ericwq/terminfo/a/ansi"
+	_ "github.com/ericwq/terminfo/a/alacritty"
 	_ "github.com/ericwq/terminfo/v/vt100"
 	_ "github.com/ericwq/terminfo/v/vt102"
 	_ "github.com/ericwq/terminfo/v/vt220"

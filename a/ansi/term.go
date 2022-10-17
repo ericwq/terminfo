@@ -39,5 +39,6 @@ func init() {
 		KeyHome:      "\x1b[H",
 		KeyBacktab:   "\x1b[Z",
 		AutoMargin:   true,
+		EraseChars:   "\x1b[%p1%dX",
 	})
 }

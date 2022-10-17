@@ -65,5 +65,6 @@ func init() {
 		Modifiers:     1,
 		TrueColor:     true,
 		AutoMargin:    true,
+		EraseChars:    "\x1b[%p1%dX",
 	})
 }
