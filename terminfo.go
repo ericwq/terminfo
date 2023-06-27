@@ -677,6 +677,10 @@ func AddTerminfo(t *Terminfo) {
 
 // LookupTerminfo attempts to find a definition for the named $TERM.
 func LookupTerminfo(name string) (*Terminfo, error) {
+	fmt.Printf("#LookupTerminfo terminfo db=%d\n", len(terminfos))
+	for k := range terminfos {
+		fmt.Printf("%s\n", k)
+	}
 	if name == "" {
 		// else on windows: index out of bounds
 		// on the name[0] reference below

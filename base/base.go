@@ -30,4 +30,5 @@ import (
 	_ "github.com/ericwq/terminfo/v/vt102"
 	_ "github.com/ericwq/terminfo/v/vt220"
 	_ "github.com/ericwq/terminfo/x/xterm"
+	_ "github.com/ericwq/terminfo/x/xterm_kitty"
 )
