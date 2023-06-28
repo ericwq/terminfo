@@ -36,7 +36,7 @@ For alpine user, use the following command to add terminfo database:
 `gen.sh` script need terminfo database.
 
 ```sh
-% apk add foot-extra-terminfo rxvt-unicode-terminfo ncurses-terminfo wezterm-extra-terminfo ncurses-terminfo-base
+% apk add ncurses foot-extra-terminfo rxvt-unicode-terminfo ncurses-terminfo wezterm-extra-terminfo ncurses-terminfo-base
 ```
 
 ## Todo list
